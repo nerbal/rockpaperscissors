@@ -22,5 +22,23 @@ function getHumanChoice() {
     }
 }
 
-console.log(getHumanChoice());
-console.log(getComputerChoice())
+function playRound(humanChoice, computerChoice) {
+    if (humanChoice != computerChoice) {
+        if (humanChoice == "rock" && computerChoice == "paper"){
+            console.log(`${computerChoice} beats ${humanChoice}, you lose!`);
+        } else if (humanChoice == "paper" && computerChoice == "scissors") {
+            console.log(`${computerChoice} beats ${humanChoice}, you lose!`);
+        } else if (humanChoice == "scissors" && computerChoice == "rock") {
+            console.log(`${computerChoice} beats ${humanChoice}, you lose!`);
+        } else { console.log(`You win! ${humanChoice} beats ${computerChoice}`);}
+        
+    } else if (computerChoice == humanChoice) {
+        console.log("you draw!");
+    }
+}
+
+
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+
+playRound(humanSelection, computerSelection);
