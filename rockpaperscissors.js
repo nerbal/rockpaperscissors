@@ -19,10 +19,10 @@ function getHumanChoice() {
     }
 }
 
+let humanScore = 0;
+let computerScore = 0;
 
 function playGame() {
-    let humanScore = 0;
-    let computerScore = 0;
     const numRounds = 5;
 
     function playRound(humanChoice, computerChoice) {
@@ -51,7 +51,19 @@ function playGame() {
         const computerSelection = getComputerChoice();
         playRound(humanSelection, computerSelection);
         console.log(`Your score is ${humanScore} vs Computers ${computerScore}`)
+
+        if (humanSelection == computerSelection && i > 0) {
+            i--;
+        }
     }
 }
 
 playGame();
+
+if (humanScore > computerScore) {
+    console.log("Congratulations you win!");
+    console.log(`Your Score: ${humanScore} - Computer Score ${computerScore}`);
+} else {
+    console.log("You lose :(");
+    console.log(`Your Score: ${humanScore} - Computer Score ${computerScore}`);
+}
