@@ -45,17 +45,6 @@ function playGame() {
             console.log("you draw!");
         }
     }
-
-    for(let i = 0; i < numRounds; i++) {
-        const humanSelection = getHumanChoice();
-        const computerSelection = getComputerChoice();
-        playRound(humanSelection, computerSelection);
-        console.log(`Your score is ${humanScore} vs Computers ${computerScore}`)
-
-        if (humanSelection == computerSelection && i > 0) {
-            i--;
-        }
-    }
 }
 
 playGame();
