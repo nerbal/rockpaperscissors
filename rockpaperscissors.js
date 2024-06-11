@@ -1,4 +1,6 @@
 const resultSelector = document.querySelector(".result");
+const playerChoiceSelector = document.querySelector("#playerChoice");
+const computerChoiceSelector = document.querySelector("#computerChoice");
 const humanScoreSelector = document.querySelector("#player");
 const computerScoreSelector = document.querySelector("#computer");
 const buttonSelector = document.querySelectorAll(".button");
@@ -19,7 +21,6 @@ buttonSelector.forEach((button) => {
 
 
 
-
 function getComputerChoice() {
     const choiceIndex = Math.floor(Math.random() * choices.length);
     return choices[choiceIndex];
@@ -29,23 +30,26 @@ function getComputerChoice() {
 // Play Game
 
 function playRound(humanChoice, computerChoice) {
+    playerChoiceSelector.textContent = `Player Chose: ${humanChoice}`;
+    computerChoiceSelector.textContent = `Computer Chose: ${computerChoice}`;
     if (humanChoice != computerChoice) {
         if (humanChoice == "rock" && computerChoice == "paper"){
-            console.log(`${computerChoice} beats ${humanChoice}, you lose!`);
+            resultSelector.textContent = `${computerChoice} beats ${humanChoice}, you lose!`;
             computerScore++;
         } else if (humanChoice == "paper" && computerChoice == "scissors") {
-            console.log(`${computerChoice} beats ${humanChoice}, you lose!`);
+            resultSelector.textContent = `${computerChoice} beats ${humanChoice}, you lose!`;
             computerScore++;
         } else if (humanChoice == "scissors" && computerChoice == "rock") {
-            console.log(`${computerChoice} beats ${humanChoice}, you lose!`);
+            resultSelector.textContent = `${computerChoice} beats ${humanChoice}, you lose!`;
             computerScore++;
         } else {   
-            console.log(`You win! ${humanChoice} beats ${computerChoice}`);
+            resultSelector.textContent = `You win! ${humanChoice} beats ${computerChoice}`;
             humanScore++;
         }
         
-    } else if (computerChoice == humanChoice) {
-        console.log("you draw!");
+    } else if (humanChoice == computerChoice) {
+        resultSelector.textContent = "you draw!";
     }
-    console.log("loopbreak");
+    humanScoreSelector.textContent = humanScore;
+    computerScoreSelector.textContent = computerScore;
 }
